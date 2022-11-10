@@ -31,7 +31,7 @@ collection = db["Drug"]
 
 
 @app.route('/api/v1/detect/<size>', methods=['POST'])
-def upload_and_detect_prescription(size):
+def detectroi(size):
     if int(size) > 0:
         data = []
         model = torch.hub.load('./yolov5', "custom", path="./yolov5/best.pt", source='local')
@@ -91,10 +91,11 @@ def upload_and_detect_prescription(size):
 
 
 @app.route("/api/v1/recognize", methods=["POST"])
-def recognizePrescription():
+def recognize():
     frequency_model = tf.keras.models.load_model("./models/frequency.h5")
     trained_model_strength = keras.models.load_model("./models/drugs_v4.h5")
     trained_model_drug = keras.models.load_model("./models/drugs_v2.h5")
+
     predictor_strength = keras.models.Model(
         trained_model_strength.get_layer(name="image").input, trained_model_strength.get_layer(name="dense2").output
     )
@@ -173,21 +174,6 @@ def recognizePrescription():
     })
 
 
-@app.route("/api/v1/status", methods=['GET'])
-def health_check():
-    return jsonify({
-        'status': 'OK'
-    })
-
-
-@app.route("/", methods=['GET'])
-def home():
-    return jsonify({
-        'status': 'OK',
-        'message': 'API HEALTH STATUS: NORMAL'
-    })
-
-
 if __name__ == '__main__':
     if not os.path.exists("./upload"):
         os.mkdir("./upload")
@@ -195,4 +181,4 @@ if __name__ == '__main__':
     if not os.path.exists("./static"):
         os.mkdir("./static")
 
-    app.run()
+    app.run(port=int(os.environ.get("PORT", 8080)), host='0.0.0.0', debug=True)
