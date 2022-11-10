@@ -174,6 +174,13 @@ def recognize():
     })
 
 
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({
+        'status': 'OK'
+    })
+
+
 if __name__ == '__main__':
     if not os.path.exists("./upload"):
         os.mkdir("./upload")
