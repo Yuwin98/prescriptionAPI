@@ -181,6 +181,62 @@ def recognize():
     })
 
 
+@app.route("/api/v1/recognize-drug", methods=["POST"])
+def recognize():
+    trained_model_drug = keras.models.load_model("./models/drugs_v2.h5")
+
+    predictor_drug = keras.models.Model(
+        trained_model_drug.get_layer(name="image").input, trained_model_drug.get_layer(name="dense2").output
+    )
+
+    prescriptionList = request.get_json(silent=True)['data']
+    data = []
+    for prescription in prescriptionList:
+        if prescription["drugImg"] != "Not Detected":
+            drugImg = prepare_image_for_prediction([prescription["drugImg"]], [""])
+        else:
+            drugImg = None
+
+        prescriptionUrl = prescription['prescriptionImg']
+
+        if drugImg is not None:
+            predictions = predictor_drug.predict(drugImg)
+            pred_drug = decode_batch_predictions(predictions)[0]
+            pred_drug = str(pred_drug).replace("[UNK]", "")
+            close_pred = difflib.get_close_matches(pred_drug, DRUGLIST)
+            if len(close_pred) > 0:
+                pred_drug = close_pred[0]
+            else:
+                pred_drug = pred_drug
+        else:
+            pred_drug = ""
+
+        drug_details = collection.find_one({"drug_name": pred_drug})
+
+        shortDescription = ""
+        uses = []
+        warnings = []
+
+        if drug_details is not None:
+            shortDescription = drug_details["description"]
+            uses = drug_details["uses"]
+            warnings = drug_details["warnings"]
+
+        prescription_analysis = {
+            "prescription": prescriptionUrl,
+            "drug": str(pred_drug).upper(),
+            "shortDescription": shortDescription,
+            "uses": uses,
+            "warnings": warnings
+        }
+        data.append(prescription_analysis)
+
+    return jsonify({
+        'data': data,
+        'success': True
+    })
+
+
 @app.route("/", methods=["GET"])
 def index():
     return jsonify({
