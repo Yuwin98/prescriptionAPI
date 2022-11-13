@@ -8,6 +8,7 @@ def words(text): return re.findall(r'\w+', text.lower())
 WORDS = Counter(words(open('./drug_dictionary').read()))
 
 
+
 def P(word, N=sum(WORDS.values())):
     "Probability of `word`."
     return WORDS[word] / N

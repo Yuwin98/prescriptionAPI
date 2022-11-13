@@ -9,6 +9,7 @@ import numpy as np
 import keras
 from pymongo import MongoClient
 from correction import correction
+import difflib
 
 UPLOAD_FOLDER = './upload'
 STATIC_FOLDER = './static'
@@ -24,6 +25,8 @@ strength_labels = ["0.4mg", "0.5tbs", "0.25tbs", "1", "1.5mg", "1g", "1mg", "1ta
                    "5ml", "10mg", "12.5mg", "20mg", "20ml", "25mg", "30mg", "40mg", "50mg", "60mg", "62.mg", "75mg",
                    "80mg", "100mg", "120mg", "150mg", "160mg", "180mg", "200mg", "250mg", "300mg", "375mg", "400mg",
                    "500mg", "600mg", "625mg", "750mg", "LA"]
+
+DRUGLIST = list(open('./drug_dictionary').read().splitlines())
 
 cluster = MongoClient("mongodb+srv://Yms98:Alphagolf212@drugs.ry1tiin.mongodb.net/?retryWrites=true&w=majority")
 db = cluster["Drugs"]
@@ -126,8 +129,12 @@ def recognize():
             pred_drug = decode_batch_predictions(predictions)[0]
             pred_drug = str(pred_drug).replace("[UNK]", "")
             print(f"Before: {pred_drug}")
-            print(correction(str(pred_drug).lower()))
-            pred_drug = correction(str(pred_drug).lower())
+            print(f"Corrected: {correction(pred_drug)}")
+            close_pred = difflib.get_close_matches(pred_drug, DRUGLIST)
+            if len(close_pred) > 0:
+                pred_drug = close_pred[0]
+            else:
+                pred_drug = pred_drug
             print(f"After: {pred_drug}")
         else:
             pred_drug = ""
@@ -177,7 +184,7 @@ def recognize():
 @app.route("/", methods=["GET"])
 def index():
     return jsonify({
-        'status': 'OK'
+        'status': 'OK2'
     })
 
 
@@ -188,4 +195,4 @@ if __name__ == '__main__':
     if not os.path.exists("./static"):
         os.mkdir("./static")
 
-    app.run(port=int(os.environ.get("PORT", 8080)), host='0.0.0.0', debug=True)
+    app.run(debug=True)

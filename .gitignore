@@ -1,2 +1,7 @@
 env/
 .git/
+requirements.txt
+models/
+yolov5/
+static/
+upload/
