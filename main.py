@@ -209,11 +209,14 @@ def recognizeDrug(size):
                 predictions = predictor_drug.predict(drugImg)
                 pred_drug = decode_batch_predictions(predictions)[0]
                 pred_drug = str(pred_drug).replace("[UNK]", "")
+                print(f"Before: {pred_drug}")
+                print(f"Corrected: {correction(pred_drug)}")
                 close_pred = difflib.get_close_matches(pred_drug, DRUGLIST)
                 if len(close_pred) > 0:
                     pred_drug = close_pred[0]
                 else:
-                    pred_drug = pred_drug
+                    pred_drug = correction(pred_drug)
+                print(f"After: {pred_drug}")
             else:
                 pred_drug = ""
 
