@@ -213,7 +213,7 @@ def recognizeDrug(size):
                 print(f"Corrected: {correction(pred_drug)}")
                 close_pred = difflib.get_close_matches(pred_drug, DRUGLIST)
                 if len(close_pred) > 0:
-                    pred_drug = close_pred[0]
+                    pred_drug = close_pred[0] + " or " + correction(pred_drug)
                 else:
                     pred_drug = correction(pred_drug)
                 print(f"After: {pred_drug}")
