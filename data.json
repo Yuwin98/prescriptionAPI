@@ -1,0 +1,38 @@
+{
+  "omeprazole": {
+    "description": "Omeprazole is used to treat excess stomach acid in conditions such as non cancerous stomach ulcers, gastroesophageal reflux disease (GERD), active duodenal ulcer, Zollinger-Ellison syndrome and erosive esophagitis. Omeprazole works by blocking gastric acid production and is from the group of medicines called proton pump inhibitors.",
+    "uses": [
+      "Gastroesophageal reflux disease",
+      "Gastric ulcers",
+      "Conditions caused by excess stomach acid"
+    ],
+    "warnings": [
+      "Digoxin",
+      "Clopidogrel",
+      "An Antibiotic (amoxillin,rifampin)",
+      "Diurectic Pill"
+    ]
+  },
+  "zithrox": {
+    "description": "Zithrox 500 Tablet is an antibiotic used to treat various types of bacterial infections of the respiratory tract, ear, nose, throat, lungs, skin, and eye in adults and children. It is also effective in typhoid fever and some sexually transmitted diseases like gonorrhea.",
+    "uses": [
+      "Pneumonia",
+      "Bronchitis",
+      "Tonsillitis",
+      "Pharyngitis",
+      "Sinusitis",
+      "Acne and Rosacea"
+    ],
+    "warnings": [
+      "Domperidone",
+      "Pimozide",
+      "Amisulpride",
+      "Ergotamine",
+      "Dihydroergotamine",
+      "Simvastatin",
+      "Tolterodine"
+    ]
+  }
+
+
+}

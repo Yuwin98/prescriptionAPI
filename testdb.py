@@ -1,9 +1,16 @@
 from pymongo import MongoClient
+import json
 
-cluster = MongoClient("mongodb+srv://Yms98:Alphagolf212@drugs.ry1tiin.mongodb.net/?retryWrites=true&w=majority")
+# cluster = MongoClient("mongodb+srv://Yms98:Alphagolf212@drugs.ry1tiin.mongodb.net/?retryWrites=true&w=majority")
+#
+# db = cluster["Drugs"]
+# collection = db["Drug"]
+#
+# drug_details = collection.find_one({"drug_name": "omeprazole"})
+# print(drug_details['uses'])
 
-db = cluster["Drugs"]
-collection = db["Drug"]
+with open('data.json') as json_file:
+    drug_data = json.load(json_file)
 
-drug_details = collection.find_one({"drug_name": "omeprazole"})
-print(drug_details['uses'])
+print((dict(drug_data).get('omeprazole')['warnings']))
+

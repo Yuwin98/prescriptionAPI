@@ -10,6 +10,7 @@ import keras
 from pymongo import MongoClient
 from correction import correction
 import difflib
+import json
 
 UPLOAD_FOLDER = './upload'
 STATIC_FOLDER = './static'
@@ -106,6 +107,9 @@ def recognize():
         trained_model_drug.get_layer(name="image").input, trained_model_drug.get_layer(name="dense2").output
     )
 
+    with open('data.json') as json_file:
+        drug_data = dict(json.load(json_file))
+
     prescriptionList = request.get_json(silent=True)['data']
     data = []
     for prescription in prescriptionList:
@@ -153,25 +157,28 @@ def recognize():
         else:
             frequency_label = "N/A"
 
-        drug_details = collection.find_one({"drug_name": pred_drug})
+        # drug_details = collection.find_one({"drug_name": pred_drug})
+        #
+        # shortDescription = ""
+        # uses = []
+        # warnings = []
+        #
+        # if drug_details is not None:
+        #     shortDescription = drug_details["description"]
+        #     uses = drug_details["uses"]
+        #     warnings = drug_details["warnings"]
 
-        shortDescription = ""
-        uses = []
-        warnings = []
-
-        if drug_details is not None:
-            shortDescription = drug_details["description"]
-            uses = drug_details["uses"]
-            warnings = drug_details["warnings"]
+        pred_Drug_lower = str(pred_drug).lower()
+        pred_drug_data = drug_data.get(pred_Drug_lower, dict())
 
         prescription_analysis = {
             "prescription": prescriptionUrl,
             "drug": str(pred_drug).upper(),
             "frequency": frequency_label,
             "strength": strength_label,
-            "shortDescription": shortDescription,
-            "uses": uses,
-            "warnings": warnings
+            "shortDescription": pred_drug_data.get("description", ""),
+            "uses": pred_drug_data.get("uses", []),
+            "warnings": pred_drug_data.get("warnings", [])
         }
         data.append(prescription_analysis)
 
