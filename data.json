@@ -92,7 +92,9 @@
   },
   "ecosprin": {
     "description": "Ecosprin Capsule is a combination of Aspirin, Atorvastatin and Clopidogrel. It is used to prevent stroke (damage to a part of the brain due to incompetent blood supply), heart attack (blockage of heart muscles due to the formation of plaques), due to high cholesterol/fat levels in your body. ",
-    "uses": ["Prevention of heart attack and stroke"],
+    "uses": [
+      "Prevention of heart attack and stroke"
+    ],
     "warnings": [
       "Clarithromycin",
       "Escitalopram",
@@ -104,7 +106,9 @@
   },
   "urimax": {
     "description": "Urimax 0.2  mg Capsule contains Tamsulosin used in men to relieve the symptoms of benign prostate hyperplasia (enlargement of the prostate gland located below the urinary bladder). ",
-    "uses": ["Benign prostatic hyperplasia"],
+    "uses": [
+      "Benign prostatic hyperplasia"
+    ],
     "warnings": [
       "Furosemide",
       "Digoxin",
@@ -112,8 +116,23 @@
       "Nifedipine"
     ]
   },
-
-
+  "coamoxyclav": {
+    "description": "Amoxyclav 375 Tablet is an antibiotic combination of Amoxycillin and Clavulanic acid. It is used to treat infections caused by bacteria. Amoxycillin interferes with the growth and division process of the bacterial cell wall while Clavulanic acid enhances the activity of Amoxycillin in treating infections caused by susceptible bacteria. ",
+    "uses": [
+      "Ear infection",
+      "Sinusitis",
+      "Pharyngitis/Tonsilitis",
+      "Skin and Soft tissue infections",
+      "Urinary Tract Infection"
+    ],
+    "warnings": [
+      "Doxycycline",
+      "Methotrexate",
+      "Warfarin",
+      "Ethinyl Estradiol",
+      "Live vaccines"
+    ]
+  },
   "default": {
     "description": "",
     "uses": [],
