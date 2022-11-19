@@ -157,8 +157,6 @@ def recognize():
         else:
             frequency_label = "N/A"
 
-
-
         pred_Drug_lower = str(pred_drug).lower()
         pred_drug_data = drug_data.get(pred_Drug_lower, dict())
 

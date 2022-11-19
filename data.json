@@ -41,9 +41,10 @@
       "Ankylosing spondylitis pain relief"
     ],
     "warnings": [
-      "Bleeding disorder",
-      "Asthma",
-      "or Known Allergy to Zycel"
+      "Leflunomide",
+      "Corticosteroids",
+      "Adefovir",
+      "Antihypertensives"
     ]
   },
   "verapamil": {
@@ -60,6 +61,50 @@
       "Calcium supplements"
     ]
   },
+  "pantoprez": {
+    "description": "Pantopraz 40 MG Tablet is an anti-ulcer medicine. It is used to treat various stomach and intestinal conditions that may occur due to excess production of acid.",
+    "uses": [
+      "Stomach and intestinal ulcers",
+      "Gastroesophagal Reflux Disease",
+      "Erosive Esophagitis",
+      "Zollinger-Ellison Syndrome",
+      "Helicobacter pylori Infection"
+    ],
+    "warnings": [
+      "Methotrexate",
+      "Warfarin",
+      "Nelfinavir",
+      "Digoxin"
+    ]
+  },
+  "lasix": {
+    "description": "Lasix 40 MG Tablet is a diuretic (water pill), a medicine that helps to remove water and sodium from the body through urine. It is used alone or in combination with other medicines for the treatment of high blood pressure. It is also used to treat excess fluid build-up in the body tissues, mostly in the feet, ankles, and legs, due to various conditions such as heart, liver, or kidney disease. \n",
+    "uses": [
+      "Hypertension",
+      "Oedema"
+    ],
+    "warnings": [
+      "Angiotensin converting enzyme inhibitors (ACEI's)",
+      "Gentamicin",
+      "Amitriptyline",
+      "Diclofenac"
+    ]
+  },
+  "ecosprin": {
+    "description": "Ecosprin Capsule is a combination of Aspirin, Atorvastatin and Clopidogrel. It is used to prevent stroke (damage to a part of the brain due to incompetent blood supply), heart attack (blockage of heart muscles due to the formation of plaques), due to high cholesterol/fat levels in your body. ",
+    "uses": ["Prevention of heart attack and stroke"],
+    "warnings": [
+      "Clarithromycin",
+      "Escitalopram",
+      "Atazanavir",
+      "Cyclosporine",
+      "Nonsteroidal anti-inflammatory drugs",
+      "Oral Anti-coagulants drugs"
+    ]
+  },
+
+
+
   "default": {
     "description": "",
     "uses": [],
