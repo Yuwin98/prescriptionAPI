@@ -133,6 +133,47 @@
       "Live vaccines"
     ]
   },
+  "finast": {
+    "description": "Finast 5 mg Tablet is a medicine that contains Finasteride. It is used in the treatment of Benign Prostatic Hyperplasia (enlargement of the prostate gland) and male-pattern baldness (loss of hair on the scalp in men). ",
+    "uses": [
+      "Benign Prostatic Hyperplasia",
+      "Hair loss"
+    ],
+    "warnings": [
+      "Itraconazole",
+      "Nelfinavir",
+      "Tacrolimus",
+      "Diltiazem"
+    ]
+  },
+  "betadine": {
+    "description": "Betadine 5% Ointment is a topical antiseptic. It is used to treat and prevent infection due to minor wounds and cuts. This medicine works by killing germs and preventing the spread of infection. ",
+    "uses": ["Minor wounds"],
+    "warnings": []
+  },
+   "dometic": {
+    "description": "Dometic 10mg Tablet is used in the treatment of indigestion, nausea, and vomiting. It increases the movement of food through the stomach and intestines, thereby relieving bloating, fullness, and gastric discomfort.",
+    "uses": [
+      "Treatment of Indigestion",
+      "Treatment of Nausea",
+      "Treatment of Vomiting"
+    ],
+    "warnings": []
+  },
+  "pcm": {
+    "description": "Pcm 500 MG Tablet is the most widely used over-the-counter (OTC) medication. It is used for the treatment of fever. It also provides relief from headache, toothache, backache, nerve pain, musculoskeletal pain, etc. associated with/without fever. Pcm 500 MG Tablet works by decreasing the intensity of pain signals to the brain. It also prevents the release of prostaglandins, the chemical that causes pain and an increase in body temperature. ",
+    "uses": [
+      "Fever",
+      "Mild to Moderate pain",
+      "Post Vaccination Fever"
+    ],
+    "warnings": [
+      "Carbamazepine",
+      "Leflunomide",
+      "Phenytoin"
+    ]
+  },
+
   "default": {
     "description": "",
     "uses": [],
