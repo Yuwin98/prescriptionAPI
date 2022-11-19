@@ -32,7 +32,37 @@
       "Simvastatin",
       "Tolterodine"
     ]
+  },
+  "zycel": {
+    "description": "Zycel 200 mg Capsule is a non-steroidal anti-inflammatory medicine, which is used to relieve pain and inflammation",
+    "uses": [
+      "Rheumatoid arthritis pain relief",
+      "Menstrual cramps pain relief",
+      "Ankylosing spondylitis pain relief"
+    ],
+    "warnings": [
+      "Bleeding disorder",
+      "Asthma",
+      "or Known Allergy to Zycel"
+    ]
+  },
+  "verapamil": {
+    "description": "Verapamil is used to treat high blood pressure and other heart complications. This medicine should be taken along with a proper diet and regular exercise to obtain the best possible result. It is also used in managing chest pain.",
+    "uses": [
+      "Hypertension",
+      "Arrythmia",
+      "Angina pectoris"
+    ],
+    "warnings": [
+      "Itraconazole",
+      "Metformin",
+      "Simvastatin",
+      "Calcium supplements"
+    ]
+  },
+  "default": {
+    "description": "",
+    "uses": [],
+    "warnings": []
   }
-
-
 }
