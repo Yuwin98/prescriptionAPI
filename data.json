@@ -102,7 +102,16 @@
       "Oral Anti-coagulants drugs"
     ]
   },
-
+  "urimax": {
+    "description": "Urimax 0.2  mg Capsule contains Tamsulosin used in men to relieve the symptoms of benign prostate hyperplasia (enlargement of the prostate gland located below the urinary bladder). ",
+    "uses": ["Benign prostatic hyperplasia"],
+    "warnings": [
+      "Furosemide",
+      "Digoxin",
+      "Warfarin",
+      "Nifedipine"
+    ]
+  },
 
 
   "default": {
